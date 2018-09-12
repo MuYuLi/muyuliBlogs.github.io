@@ -17,6 +17,7 @@
 <meta property="og:description" content="最近刚刚入职新公司，正处于间歇性踌躇满志的时候，恰逢阿里云服务器打折，跑去转了一圈，意外入手了一个域名。域名都有了，不做点事情有点浪费，才有了搭建个博客的想法。哈哈哈 希望后面能够多写点自己技术上的心得以此让自己更深入地去学习 希望后面能够多写点自己生活上的感悟以此让自己更认真地去生活 OK，Nice ！开搞！ 域名+Hexo+gitHub的方式搭建博客，其实本质就是你的域名跟github服务器有">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.muyuli.cn/2018/09/12/域名+Hexo+gitHub%20=%20你专属的独一%20无二的博客/creatgithub.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/域名+Hexo+gitHub%20=%20你专属的独一%20无二的博客/createWJJ.jpg">
 <meta property="og:image" content="http://www.muyuli.cn/2018/09/12/域名+Hexo+gitHub%20=%20你专属的独一%20无二的博客/githubsetting.jpg">
 <meta property="og:image" content="http://www.muyuli.cn/2018/09/12/域名+Hexo+gitHub%20=%20你专属的独一%20无二的博客/createWJJ.jpg">
 <meta property="og:image" content="http://www.muyuli.cn/2018/09/12/域名+Hexo+gitHub%20=%20你专属的独一%20无二的博客/hexofiles.jpg">
@@ -25,7 +26,7 @@
 <meta property="og:image" content="http://www.muyuli.cn/2018/09/12/域名+Hexo+gitHub%20=%20你专属的独一%20无二的博客/aliyun.jpg">
 <meta property="og:image" content="http://www.muyuli.cn/2018/09/12/域名+Hexo+gitHub%20=%20你专属的独一%20无二的博客/gitpageSet.jpg">
 <meta property="og:image" content="http://www.muyuli.cn/2018/09/12/域名+Hexo+gitHub%20=%20你专属的独一%20无二的博客/githubpage.jpg">
-<meta property="og:updated_time" content="2018-09-12T13:58:44.930Z">
+<meta property="og:updated_time" content="2018-09-12T14:05:35.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="域名+Hexo+gitHub = 你专属的独一 无二的博客">
 <meta name="twitter:description" content="最近刚刚入职新公司，正处于间歇性踌躇满志的时候，恰逢阿里云服务器打折，跑去转了一圈，意外入手了一个域名。域名都有了，不做点事情有点浪费，才有了搭建个博客的想法。哈哈哈 希望后面能够多写点自己技术上的心得以此让自己更深入地去学习 希望后面能够多写点自己生活上的感悟以此让自己更认真地去生活 OK，Nice ！开搞！ 域名+Hexo+gitHub的方式搭建博客，其实本质就是你的域名跟github服务器有">
@@ -186,7 +187,7 @@
 发表文章
 </code></pre><h3 id="配置GitHub仓库"><a href="#配置GitHub仓库" class="headerlink" title="配置GitHub仓库"></a>配置GitHub仓库</h3><p>进入github官网，没有账号的，注册一个咯 还能怎么办呢</p>
 <h5 id="Create-New-repository"><a href="#Create-New-repository" class="headerlink" title="Create New repository"></a>Create New repository</h5><p><em>注意：格式必须为xxx.github.io</em></p>
-<p><img src="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/creatgithub.jpg" alt="---pics---"></p>
+<p><img src="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/creatgithub.jpg" alt="---pics---"><br><img src="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/createWJJ.jpg" alt="---pics---"></p>
 <h5 id="配置SSH（可以直接https，不需要配置SSH）"><a href="#配置SSH（可以直接https，不需要配置SSH）" class="headerlink" title="配置SSH（可以直接https，不需要配置SSH）"></a>配置SSH（可以直接https，不需要配置SSH）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
 <p>生成<code>id_rsa.pub</code>文件，这里面就是SSH key的内容</p>
 <p>然后使用vim编辑器打开这个文件</p>
@@ -201,14 +202,11 @@
 <li>安装Node.js</li>
 <li>安装和配置Hexo</li>
 </ul>
-<p>####安装git</p>
-<p><a href="http://git-scm.com" target="_blank" rel="noopener">戳我</a></p>
+<h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><p><a href="http://git-scm.com" target="_blank" rel="noopener">戳我</a></p>
 <p><a href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">或者戳我</a></p>
-<p>####安装Node.js</p>
-<p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">戳我</a></p>
+<h4 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h4><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">戳我</a></p>
 <p>一步步安装就可以了，我们会把博客内容push到gitHub上，安装Node.js因为Hexo基于Node.js</p>
-<p>####安装和配置Hexo</p>
-<p>Now，打开终端，用npm安装Hexo（Mac自带npm）</p>
+<h4 id="安装和配置Hexo"><a href="#安装和配置Hexo" class="headerlink" title="安装和配置Hexo"></a>安装和配置Hexo</h4><p>Now，打开终端，用npm安装Hexo（Mac自带npm）</p>
 <p><code>npm install -g hexo-cli</code></p>
 <p>然后找个地方新建个文件夹，例如我建在用户目录下：</p>
 <p><img src="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/createWJJ.jpg" alt="---pics---"></p>
@@ -259,8 +257,7 @@
 <p>文章写好直接执行下面命令即可直接发布文章</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
 <p>浏览器中输入自己的域名，便可以查看最新的博文了！Over！！！</p>
-<p>###补充</p>
-<p>博文可直接用MarkDown编辑器编辑，推荐Typora，真正的所写即所得</p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>博文可直接用MarkDown编辑器编辑，推荐Typora，真正的所写即所得</p>
 <p><code>yilia</code> 主题相关的设置，可打开<code>/Hexo/themes/yilia/_config.ylm</code>文件修改，详情可参照<code>yilia</code>gitHub主页</p>
 <p>localhost:4000 端口被占用的话，可执行 hexo s -p 5000 修改成5000 端口</p>
 <p>end of the stream or a document separator is expected at line x, column y</p>
