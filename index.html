@@ -160,16 +160,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近刚刚入职新公司，处于间歇性踌躇满志的时候，恰逢阿里云服务器打折，跑去转了一圈，意外入手了一个域名。域名都有了，不做点事情有点浪费，才有了搭建个博客的想法。哈哈哈</p>
+        <p>最近刚刚入职新公司，正处于间歇性踌躇满志的时候，恰逢阿里云服务器打折，跑去转了一圈，意外入手了一个域名。域名都有了，不做点事情有点浪费，才有了搭建个博客的想法。哈哈哈</p>
 <p>希望后面能够多写点自己技术上的心得以此让自己更深入地去学习</p>
 <p>希望后面能够多写点自己生活上的感悟以此让自己更认真地去生活</p>
 <p>OK，Nice ！开搞！</p>
+<p>域名+Hexo+gitHub的方式搭建博客，其实本质就是你的域名跟github服务器有个映射关系，本地在Hexo上写的.md格式的博文（其实读取的时候是静态网页）push到github上后，通过访问你的域名，就可以连接github的服务器，从而读取你的博文。我搭建的过程：</p>
 <p>大致可以粗略分为以下步骤 </p>
-<p>​    环境搭建</p>
 <p>​    配置GitHub仓库</p>
+<p>   ​    本地环境搭建</p>
 <p>​    配置域名</p>
 <p>​    发表文章</p>
-<h3 id="环境搭建（以Mac示例）"><a href="#环境搭建（以Mac示例）" class="headerlink" title="环境搭建（以Mac示例）"></a>环境搭建（以Mac示例）</h3><ul>
+<h3 id="配置GitHub仓库"><a href="#配置GitHub仓库" class="headerlink" title="配置GitHub仓库"></a>配置GitHub仓库</h3><p>进入github官网，没有账号的，注册一个咯 还能怎么办呢</p>
+<h5 id="Create-New-repository"><a href="#Create-New-repository" class="headerlink" title="Create New repository"></a>Create New repository</h5><p><em>注意：格式必须为xxx.github.io</em></p>
+<p><img src="/Users/anjuke/Hexo/source/_posts/%E5%9F%9F%E5%90%8D+Hexo+gitHub%20=%20%E4%BD%A0%E4%B8%93%E5%B1%9E%E7%9A%84%E7%8B%AC%E4%B8%80%20%E6%97%A0%E4%BA%8C%E7%9A%84%E5%8D%9A%E5%AE%A2/creatgithub.jpg" alt="嘻嘻"></p>
+<h5 id="配置SSH（可以直接https，不需要配置SSH）"><a href="#配置SSH（可以直接https，不需要配置SSH）" class="headerlink" title="配置SSH（可以直接https，不需要配置SSH）"></a>配置SSH（可以直接https，不需要配置SSH）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+<p>生成<code>id_rsa.pub</code>文件，这里面就是SSH key的内容</p>
+<p>然后使用vim编辑器打开这个文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>选中内容 复制</p>
+<p>在github的设置页面，新增SSH Key </p>
+<p><img src="/Users/anjuke/Hexo/source/_posts/%E5%9F%9F%E5%90%8D+Hexo+gitHub%20=%20%E4%BD%A0%E4%B8%93%E5%B1%9E%E7%9A%84%E7%8B%AC%E4%B8%80%20%E6%97%A0%E4%BA%8C%E7%9A%84%E5%8D%9A%E5%AE%A2/githubsetting.jpg" alt="嘻嘻"></p>
+<p>查看SSH是否配置好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<h3 id="本地环境搭建（以Mac示例）"><a href="#本地环境搭建（以Mac示例）" class="headerlink" title="本地环境搭建（以Mac示例）"></a>本地环境搭建（以Mac示例）</h3><ul>
 <li><p>安装git</p>
 </li>
 <li><p>安装Node.js</p>
@@ -181,12 +194,66 @@
 <p><a href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">或者戳我</a></p>
 <p>####安装Node.js</p>
 <p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">戳我</a></p>
-<p>一步步安装就可以了，我们会把博客内容push到git上，安装Node.js因为Hexo基于Node.js</p>
+<p>一步步安装就可以了，我们会把博客内容push到gitHub上，安装Node.js因为Hexo基于Node.js</p>
 <p>####安装和配置Hexo</p>
 <p>Now，打开终端，用npm安装Hexo（Mac自带npm）</p>
 <p><code>npm install -g hexo-cli</code></p>
-<p>然后找个地方新建个文件夹，例如</p>
-<h3 id="配置GitHub仓库"><a href="#配置GitHub仓库" class="headerlink" title="配置GitHub仓库"></a>配置GitHub仓库</h3><h3 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h3><h3 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h3>
+<p>然后找个地方新建个文件夹，例如我建在用户目录下：</p>
+<p><img src="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/createWJJ.jpg" alt="text"></p>
+<p>然后cd到Hexo文件夹</p>
+<p>然后依次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>这一步如果出错的话，可能与权限有关，在前面加sudo 输入密码获得权限就行</p>
+<p>安装结束后  空的文件夹现在长这样：</p>
+<p><img src="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/hexofiles.jpg" alt="嘻嘻"></p>
+<p>然后启动本地服务 (hexo server) </p>
+<p><code>hexo s</code></p>
+<p><img src="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/hexo_S.jpg" alt="嘻嘻"></p>
+<p>打开上网工具，输入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 是不是可以看到安装成功？嘤嘤嘤</p>
+<p>那么我们看到的网页模板不是我们想要的，所以可以换主题嘛！这里是采用了比较著名的<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia</a>主题</p>
+<p><code>Ctrl+c</code></p>
+<p><code>cd themes</code></p>
+<p>把yilia主题从github网站上clone下来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/litten/hexo-theme-yilia.git</span><br></pre></td></tr></table></figure>
+<p>可以把文件夹改名字为yilia</p>
+<p><img src="/Users/anjuke/Hexo/source/_posts/域名+Hexo+gitHub = 你专属的独一 无二的博客/liyia.jpg" alt="嘻嘻"></p>
+<p>然后打开Hexo文件夹下面的<code>_config.yml</code>文件，拉到最低，修改里面的<code>theme</code>为<code>yilia</code></p>
+<p>ok 到这一步，我们完成了主题的切换</p>
+<p>那我们一开始新建的gitHub仓库用来干什么的呢？别急，在下面</p>
+<p>还是刚刚打开的<code>_config.yml</code>文件，拉到底，把配置改成下面这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/xxx/xxx.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>注意看type: git  这里一定要写<code>git</code>而不是<code>gitHub</code></p>
+<p>好了，保存关闭</p>
+<p>回到终端</p>
+<p>执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>如果出现<code>ERROR Deployer not found: git</code>错误，执行<code>npm install --save hexo-deployer-git</code>还是不行看一下上文中type是否是<code>git</code>或者是否是权限问题，如果是，命令行前加<code>sudo</code></p>
+<h3 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h3><p>我是在阿里云买的域名（腾讯云，新浪云 etc.）</p>
+<p><img src="/Users/anjuke/Hexo/source/_posts/域名+Hexo+gitHub = 你专属的独一 无二的博客/aliyun.jpg" alt="嘻嘻"></p>
+<p>注意：记录值写一开始创建的github仓库名：xxx.github.io</p>
+<p>到这里，完成了域名对github的映射</p>
+<p>然后，去到github，完成github对域名的反映射</p>
+<p><img src="/Users/anjuke/Hexo/source/_posts/域名+Hexo+gitHub = 你专属的独一 无二的博客/gitpageSet.jpg" alt="嘻嘻"></p>
+<p><img src="/Users/anjuke/Hexo/source/_posts/域名+Hexo+gitHub = 你专属的独一 无二的博客/githubpage.jpg" alt="嘻嘻"></p>
+<p>OK Nice！到这里就正式完成了  输入自己的域名，看到了属于自己独一无二的博客，是不是很惊喜？</p>
+<h3 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h3><p>先说一下如果想在博文中插入图片，需要用到一个插件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install --save https://github.com/CodeFalling/hexo-asset-image</span><br></pre></td></tr></table></figure>
+<p>cd到Hexo 查看<code>_config.yml</code>文件 查找 <code>post_asset_folder</code>字段确定<code>post_asset_folder</code>设置为<code>true</code> </p>
+<p>新建文章</p>
+<p><code>cd Hexo</code></p>
+<p><code>hexo new &quot;Hello World&quot;</code></p>
+<p>然后在Hexo/source/_ports/里面可以看到<code>Hello World.md</code>和<code>Hello World</code>文件夹，文件夹里可以放图片等跟<code>Hello World</code>博文有关的资源</p>
+<p>在博文里用<code>![] (/Hello World/tupian.png)</code>方式插入图片</p>
+<p>文章写好直接执行下面命令即可直接发布文章</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p>浏览器中输入自己的域名，便可以查看最新的博文了！Over！！！</p>
+<p>###补充</p>
+<p>博文可直接用MarkDown编辑器编辑，推荐Typora，真正的所写即所得</p>
+<p><code>yilia</code> 主题相关的设置，可打开<code>/Hexo/themes/yilia/_config.ylm</code>文件修改，详情可参照<code>yilia</code>gitHub主页</p>
+<p>localhost:4000 端口被占用的话，可执行 hexo s -p 5000 修改成5000 端口</p>
+<p>end of the stream or a document separator is expected at line x, column y</p>
+<p>查看是否是<code>_config.yml</code>文件中x行冒号后面没有空格</p>
+
       
 
       
