@@ -43,7 +43,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="assets/muyuli.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">沐雨立</a></h1>
@@ -93,7 +93,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="assets/muyuli.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">沐雨立</h1>
@@ -166,12 +166,16 @@
 <p>OK，Nice ！开搞！</p>
 <p>域名+Hexo+gitHub的方式搭建博客，其实本质就是你的域名跟github服务器有个映射关系，本地在Hexo上写的.md格式的博文（其实读取的时候是静态网页）push到github上后，通过访问你的域名，就可以连接github的服务器，从而读取你的博文。我搭建的过程：</p>
 <p>大致可以粗略分为以下步骤 </p>
-<pre><code>配置GitHub仓库
-</code></pre><p>   ​    本地环境搭建</p>
-<pre><code>配置域名
-
-发表文章
-</code></pre><h3 id="配置GitHub仓库"><a href="#配置GitHub仓库" class="headerlink" title="配置GitHub仓库"></a>配置GitHub仓库</h3><p>进入github官网，没有账号的，注册一个咯 还能怎么办呢</p>
+<ul>
+<li><p>创建GitHub仓库</p>
+</li>
+<li><p>本地环境搭建</p>
+</li>
+<li><p>配置域名</p>
+</li>
+<li>发表文章</li>
+</ul>
+<h3 id="配置GitHub仓库"><a href="#配置GitHub仓库" class="headerlink" title="配置GitHub仓库"></a>配置GitHub仓库</h3><p>进入github官网，没有账号的，注册一个咯 还能怎么办呢</p>
 <h5 id="Create-New-repository"><a href="#Create-New-repository" class="headerlink" title="Create New repository"></a>Create New repository</h5><p><em>注意：格式必须为xxx.github.io</em></p>
 <p><img src="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/creatgithub.jpg" alt="---pics---"></p>
 <h5 id="配置SSH（可以直接https，不需要配置SSH）"><a href="#配置SSH（可以直接https，不需要配置SSH）" class="headerlink" title="配置SSH（可以直接https，不需要配置SSH）"></a>配置SSH（可以直接https，不需要配置SSH）</h5><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh-keygen</span></span><br></pre></td></tr></table></figure>
@@ -243,7 +247,7 @@
 <p>文章写好直接执行下面命令即可直接发布文章</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo d -g</span></span><br></pre></td></tr></table></figure>
 <p>浏览器中输入自己的域名，便可以查看最新的博文了！Over！！！</p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><strong>博文可直接用MarkDown编辑器编辑，推荐Typora，真正的所写即所得</strong></p>
+<h3 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h3><p><strong>博文可直接用MarkDown编辑器编辑，推荐Typora，真正的所写即所得</strong></p>
 <p><strong><code>yilia</code> 主题相关的设置，可打开<code>/Hexo/themes/yilia/_config.ylm</code>文件修改，详情可参照<code>yilia</code>gitHub主页</strong></p>
 <p><strong>localhost:4000 端口被占用的话，可执行 hexo s -p 5000 修改成5000 端口</strong></p>
 <p>end of the stream or a document separator is expected at line x, column y</p>
