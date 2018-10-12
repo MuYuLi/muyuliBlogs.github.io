@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.muyuli.cn">
-  <title>Tag: 工具 | 沐雨立的碎碎念</title>
+  <title>如何把自己的开源代码发布到CocoaPods上 | 沐雨立的碎碎念</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="沐雨立的碎碎念">
-<meta property="og:url" content="http://www.muyuli.cn/tags/工具/index.html">
+  <meta name="description" content="由于所在公司开发团队同时维护了三个APP，所以会经常出现三个APP中同时需要相同的诸如工具类，框架，业务等代码，如果每个APP都各自写一遍，未免太浪费时间，所以会经常需要写一些通用的代码放在CocoaPods上。今天就来记录一下如何把自己的代码放给CocoaPods上供很多很多很多人都能直接用嘻嘻嘻 在这篇文章中，我忽略了CocoaPods的安装，原理等 如果有这方面需求可参考https://ww">
+<meta name="keywords" content="工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何把自己的开源代码发布到CocoaPods上">
+<meta property="og:url" content="http://www.muyuli.cn/2018/10/11/如何把自己的开源代码发布到CocoaPods上/index.html">
 <meta property="og:site_name" content="沐雨立的碎碎念">
+<meta property="og:description" content="由于所在公司开发团队同时维护了三个APP，所以会经常出现三个APP中同时需要相同的诸如工具类，框架，业务等代码，如果每个APP都各自写一遍，未免太浪费时间，所以会经常需要写一些通用的代码放在CocoaPods上。今天就来记录一下如何把自己的代码放给CocoaPods上供很多很多很多人都能直接用嘻嘻嘻 在这篇文章中，我忽略了CocoaPods的安装，原理等 如果有这方面需求可参考https://ww">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.muyuli.cn/2018/10/11/如何把自己的开源代码发布到CocoaPods上/WechatIMG7.png">
+<meta property="og:image" content="http://www.muyuli.cn/2018/10/11/如何把自己的开源代码发布到CocoaPods上/WechatIMG953.png">
+<meta property="og:updated_time" content="2018-10-12T06:35:41.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="沐雨立的碎碎念">
+<meta name="twitter:title" content="如何把自己的开源代码发布到CocoaPods上">
+<meta name="twitter:description" content="由于所在公司开发团队同时维护了三个APP，所以会经常出现三个APP中同时需要相同的诸如工具类，框架，业务等代码，如果每个APP都各自写一遍，未免太浪费时间，所以会经常需要写一些通用的代码放在CocoaPods上。今天就来记录一下如何把自己的代码放给CocoaPods上供很多很多很多人都能直接用嘻嘻嘻 在这篇文章中，我忽略了CocoaPods的安装，原理等 如果有这方面需求可参考https://ww">
+<meta name="twitter:image" content="http://www.muyuli.cn/2018/10/11/如何把自己的开源代码发布到CocoaPods上/WechatIMG7.png">
   
     <link rel="alternative" href="/atom.xml" title="沐雨立的碎碎念" type="application/atom+xml">
   
@@ -138,36 +146,132 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-如何把自己的开源代码发布到CocoaPods上" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      如何把自己的开源代码发布到CocoaPods上
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/" class="archive-article-date">
+
+        
+        <a href="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/" class="archive-article-date">
   	<time datetime="2018-10-11T08:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/">如何把自己的开源代码发布到CocoaPods上</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>由于所在公司开发团队同时维护了三个APP，所以会经常出现三个APP中同时需要相同的诸如工具类，框架，业务等代码，如果每个APP都各自写一遍，未免太浪费时间，所以会经常需要写一些通用的代码放在CocoaPods上。今天就来记录一下如何把自己的代码放给CocoaPods上供很多很多很多人都能直接用嘻嘻嘻</p>
+<p>在这篇文章中，我忽略了CocoaPods的安装，原理等 如果有这方面需求可参考<a href="https://www.jianshu.com/p/83baebf049b8" target="_blank" rel="noopener">https://www.jianshu.com/p/83baebf049b8</a></p>
+<p>先梳理大致过程</p>
+<ul>
+<li><p>把自己的代码开源到GitHub上</p>
+</li>
+<li><p>Trunk相关操作</p>
+</li>
+<li><p>新建 .podspec文件并提交</p>
+</li>
+<li><p>更新版本</p>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="把自己的代码开源到GitHub上"><a href="#把自己的代码开源到GitHub上" class="headerlink" title="把自己的代码开源到GitHub上"></a>把自己的代码开源到GitHub上</h3><h4 id="登录GitHub-新建仓库"><a href="#登录GitHub-新建仓库" class="headerlink" title="登录GitHub 新建仓库"></a>登录GitHub 新建仓库</h4><p>填写（仓库名字（Repository name）、仓库权限（Public）、readme、license）</p>
+<h4 id="本地创建文件夹"><a href="#本地创建文件夹" class="headerlink" title="本地创建文件夹"></a>本地创建文件夹</h4><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">打开终端 <span class="keyword">cd</span> xxx</span><br><span class="line"></span><br><span class="line">git clone http<span class="variable">s:</span>//xxxxxxxx</span><br><span class="line"></span><br><span class="line">创建开源文件（为了别人能够清楚的知道如何使用我们的代码，一般都会创建个example工程）</span><br><span class="line"></span><br><span class="line">git <span class="built_in">add</span> .</span><br><span class="line"></span><br><span class="line">git commit -<span class="keyword">am</span> <span class="string">"xxxx"</span></span><br><span class="line"></span><br><span class="line">git push origin </span><br><span class="line"></span><br><span class="line">git <span class="keyword">tag</span> <span class="string">'0.0.1'</span>    -----  &lt;打<span class="keyword">tag</span>很重要&gt;</span><br><span class="line"></span><br><span class="line">git push –<span class="keyword">tags</span></span><br></pre></td></tr></table></figure>
+<p>好的，现在GitHub上已经开源了想要分享的代码</p>
+<h3 id="Trunk相关操作"><a href="#Trunk相关操作" class="headerlink" title="Trunk相关操作"></a>Trunk相关操作</h3><h4 id="查看cocoaPods版本"><a href="#查看cocoaPods版本" class="headerlink" title="查看cocoaPods版本"></a>查看cocoaPods版本</h4><p><code>pod --version</code>  </p>
+<p>确定版本大于0.33，如果小于这个版本 升级cocapods</p>
+<p><code>sudo gem install cocoapods</code></p>
+<h4 id="注册Trunk账号"><a href="#注册Trunk账号" class="headerlink" title="注册Trunk账号"></a>注册Trunk账号</h4><p><code>pod trunk register 邮箱地址 ‘用户名’</code></p>
+<p>登录邮箱，打开邮箱里给到的链接，会看到注册成功</p>
+<h4 id="查看注册信息"><a href="#查看注册信息" class="headerlink" title="查看注册信息"></a>查看注册信息</h4><p><code>pod trunk me</code></p>
+<h3 id="新建-podspec文件并提交"><a href="#新建-podspec文件并提交" class="headerlink" title="新建 .podspec文件并提交"></a>新建 .podspec文件并提交</h3><h4 id="什么是-podspec文件"><a href="#什么是-podspec文件" class="headerlink" title="什么是.podspec文件"></a>什么是.podspec文件</h4><p>.podspec文件是为了让CocoaPods搜索引擎知道该分享代码的作者、版本号、概要、描述、源代码地址、部署版本等描述信息。 .podspec文件可以自动生成，这里建议在github上找一个.podspec文件修改一下参数即可。毕竟很多开源的框架写的.podspec肯定是能够满足我们所有的信息描述又不至于产生太多的冗余。</p>
+<h4 id="新建-podspec文件"><a href="#新建-podspec文件" class="headerlink" title="新建 .podspec文件"></a>新建 .podspec文件</h4><p><code>pod spec create xxx    //生成xxx.podspec文件</code></p>
+<p>新建结束后 打开.podspec 参考知名开源框架的写法写自己的信息，这一步很容易出错，务必仔细认真</p>
+<p>说明几个参数：</p>
+<p>1、s.license</p>
+<p>Pods依赖库使用的license类型，在创建GitHub仓库的时候创建的license类型写上即可<br>2、s.source_files</p>
+<p>表示源文件的路径，注意这个路径是相对podspec文件而言的。<br>3、s.frameworks</p>
+<p>需要用到的frameworks</p>
+<p>4、s.name</p>
+<p>名称，pod search 搜索的关键词,注意这里一定要和.podspec的名称一样,否则报错 </p>
+<p>5、s.version</p>
+<p>版本号 </p>
+<p>6、s.ios.deployment_target</p>
+<p>支持的pod最低版本</p>
+<p>7、 s.summary:</p>
+<p> 简介</p>
+<p>8、s.homepage</p>
+<p>项目主页地址</p>
+<p>9、 s.license:许可证 </p>
+<p> source_files:写法及含义建议大家写第一种或者第二种</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"xxx/*</span></span><br><span class="line"><span class="string">"</span>xxx/xxx<span class="comment">/*.&#123;h,m&#125;"</span></span><br><span class="line"><span class="comment">"xxx/**/</span>*.h<span class="string">"</span></span><br></pre></td></tr></table></figure>
+<pre><code>“*” 表示匹配所有文件
+“*.{h,m}” 表示匹配所有以.h和.m结尾的文件
+“**” 表示匹配所有子目录
+</code></pre><h4 id="验证-podspec文件"><a href="#验证-podspec文件" class="headerlink" title="验证.podspec文件"></a>验证.podspec文件</h4><p><code>pod spec lint</code></p>
+<p>验证失败后 要仔细查看下.podspec文件</p>
+<p><img src="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/WechatIMG7.png" alt="---pics---"></p>
+<h4 id="提交-podspec文件到trunk中"><a href="#提交-podspec文件到trunk中" class="headerlink" title="提交.podspec文件到trunk中"></a>提交.podspec文件到trunk中</h4><p><code>pod trunk push xxx.podspec</code></p>
+<p><img src="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/WechatIMG953.png" alt="image"></p>
+<p>好了，到这里就可以使用刚刚提交给pods的代码了（很多人出现搜索不到的问题，只能pod setup一下，但我没有出现该问题）</p>
+<h3 id="更新版本"><a href="#更新版本" class="headerlink" title="更新版本"></a>更新版本</h3><p>如果在版本使用期间发现了bug或者有新的东西提交，那么就需要把提交流程重新走一遍</p>
+<ul>
+<li>提交代码</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> . </span></span><br><span class="line"><span class="bash">git commit -am “xxx” </span></span><br><span class="line"><span class="bash">git push origin master</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>打tag</li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">'0</span>.<span class="number">0.1</span>'</span><br><span class="line">git push --tags</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改.podspec文件中的version字段</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s<span class="selector-class">.version</span> = <span class="string">'0.0.1'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>提交.podspec文件到trunk</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">pod</span> trunk <span class="keyword">push </span>xxx.podspec</span><br></pre></td></tr></table></figure>
+<p>以上即可</p>
+<h3 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h3><h5 id="tag相关操作："><a href="#tag相关操作：" class="headerlink" title="tag相关操作："></a>tag相关操作：</h5><p>git tag                      // 查看tag<br>git tag -d 0.0.1       //删除一个指定的tag<br>git push origin :refs/tags/1.0.0      // push到远程tag</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>破碗举的有点累<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -179,57 +283,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.muyuli.cn/2018/10/11/如何把自己的开源代码发布到CocoaPods上/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/" class="archive-article-date">
-  	<time datetime="2018-09-12T09:30:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">域名+Hexo+gitHub = 你专属的独一 无二的博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/">域名+Hexo+gitHub = 你专属的独一 无二的博客</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -252,9 +405,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
