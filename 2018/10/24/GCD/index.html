@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.muyuli.cn">
-  <title>Tag: 工具 | 沐雨立的碎碎念</title>
+  <title>多线程复习三部曲--GCD | 沐雨立的碎碎念</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="沐雨立的碎碎念">
-<meta property="og:url" content="http://www.muyuli.cn/tags/工具/index.html">
+  <meta name="description" content="作为一个合格的iOS开发，总归绕不开多线程技术的使用。今天提测了业务需求，来复习一下多线程三部曲之一 —— GCD 这篇文章记录了GCD相关的概念，任务和队列，基本使用，其他知识点等。具体如下：  GCD 相关简介 GCD 任务和队列 GCD 基本使用 GCD 其他知识点">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多线程复习三部曲--GCD">
+<meta property="og:url" content="http://www.muyuli.cn/2018/10/24/GCD/index.html">
 <meta property="og:site_name" content="沐雨立的碎碎念">
+<meta property="og:description" content="作为一个合格的iOS开发，总归绕不开多线程技术的使用。今天提测了业务需求，来复习一下多线程三部曲之一 —— GCD 这篇文章记录了GCD相关的概念，任务和队列，基本使用，其他知识点等。具体如下：  GCD 相关简介 GCD 任务和队列 GCD 基本使用 GCD 其他知识点">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-25T06:53:27.975Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="沐雨立的碎碎念">
+<meta name="twitter:title" content="多线程复习三部曲--GCD">
+<meta name="twitter:description" content="作为一个合格的iOS开发，总归绕不开多线程技术的使用。今天提测了业务需求，来复习一下多线程三部曲之一 —— GCD 这篇文章记录了GCD相关的概念，任务和队列，基本使用，其他知识点等。具体如下：  GCD 相关简介 GCD 任务和队列 GCD 基本使用 GCD 其他知识点">
   
     <link rel="alternative" href="/atom.xml" title="沐雨立的碎碎念" type="application/atom+xml">
   
@@ -138,98 +143,261 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-GCD" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/" class="archive-article-date">
-  	<time datetime="2018-10-11T08:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/">如何把自己的开源代码发布到CocoaPods上</a>
+    <h1 class="article-title" itemprop="name">
+      多线程复习三部曲--GCD
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/10/24/GCD/" class="archive-article-date">
+  	<time datetime="2018-10-24T06:40:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作为一个合格的iOS开发，总归绕不开多线程技术的使用。今天提测了业务需求，来复习一下多线程三部曲之一 —— GCD</p>
+<p>这篇文章记录了GCD相关的概念，任务和队列，基本使用，其他知识点等。具体如下：</p>
+<ul>
+<li>GCD 相关简介</li>
+<li>GCD 任务和队列</li>
+<li>GCD 基本使用</li>
+<li>GCD 其他知识点</li>
+</ul>
+<a id="more"></a>
+<h4 id="一、GCD-相关简介"><a href="#一、GCD-相关简介" class="headerlink" title="一、GCD 相关简介"></a>一、GCD 相关简介</h4><p>GCD （Grand Central Dispatch）是Apple开发的一个多核编程的解决方案，主要用于优化应用程序以支持多核处理器以及其他堆成多处理系统。是一个在线程池模式的基础上执行的并发任务。</p>
+<p>GCD的好处：</p>
+<p><code>GCD可用于多核的并行运算</code></p>
+<p><code>GCD会自动利用更多的CPU内核</code></p>
+<p><code>GCD会自动管理线程声明周期（创建线程、调度任务、销毁线程）</code></p>
+<p><code>不需要编写任何管理线程代码</code></p>
+<h4 id="二、GCD-任务和队列"><a href="#二、GCD-任务和队列" class="headerlink" title="二、GCD 任务和队列"></a>二、GCD 任务和队列</h4><p>GCD的核心概念：任务和队列</p>
+<p>任务：就是执行一段代码实现我们想要它实现的操作。</p>
+<p>执行任务的方式：同步执行（Synchronous）和异步执行（Asychronous）。两者的主要区别是：<strong>是否等待队列的任务执行结束，以及是否具备开启新线程的能力</strong></p>
+<p><strong>同步执行（Synchronous）：</strong></p>
+<p>同步添加的任务需要等待当前队列的其他任务执行结束才能执行，并且只能在当前线程执行，不具备开启新线程的能力</p>
+<p><strong>异步执行（Asychronous）：</strong></p>
+<p>异步添加的任务可以立即开始执行，并且具备开启新线程的能力（具备但不必须，跟队列有关）</p>
+<p>队列：指执行任务的等待队列，存放任务。它是一种特殊的线性表，采用先进先出原则，新任务排到队列末尾，读取任务的时候总是从队列开头开始。</p>
+<p>队列的种类：串行队列（Serial Dispatch Queue）和并发队列（Concurrent Dispatch Queue）。两者的主要区别是：<strong>是否等待队列的任务执行结束，以及是否具备开启新线程的能力</strong></p>
+<p><strong>串行队列（Serial Dispatch Queue）：</strong></p>
+<p>任务排着队，每次只执行一个；可以开启一个线程或者在当前线程</p>
+<p><strong>并发队列（Concurrent Dispatch Queue）：</strong></p>
+<p>可以多个任务同时执行，可以开启多个线程</p>
+<h4 id="三、GCD-基本使用"><a href="#三、GCD-基本使用" class="headerlink" title="三、GCD 基本使用"></a>三、GCD 基本使用</h4><p>使用GCD，分两步：</p>
+<ol>
+<li>创建队列（串行或并发）</li>
+<li>将任务加到任务的队列中，指定任务类型（同步执行或者异步执行）</li>
+</ol>
+<p>下面来用一用</p>
+<h5 id="3-1创建队列"><a href="#3-1创建队列" class="headerlink" title="3.1创建队列"></a>3.1创建队列</h5><ul>
+<li>使用 <code>dispatch_queue_t</code> 创建队列，<code>dispatch_queue_create(&lt;#const char * _Nullable label#&gt;, &lt;#dispatch_queue_attr_t  _Nullable attr#&gt;)</code></li>
+</ul>
+<p>传入两个参数，第一个参数为队列的唯一标识符，可为空；第二个参数用来识别是串行队列还是并发队列：<code>DISPATCH_QUEUE_SERIAL</code> 表示串行队列，<code>DISPATCH_QUEUE_CONCURRENT</code> 表示并发队列。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//串行队列</span></span><br><span class="line"><span class="keyword">dispatch_queue_t</span> sQueue = dispatch_queue_create(<span class="string">""</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line"></span><br><span class="line"> <span class="comment">//并发队列 </span></span><br><span class="line"><span class="keyword">dispatch_queue_t</span> cQueue = dispatch_queue_create(<span class="string">""</span>, DISPATCH_QUEUE_CONCURRENT);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>主队列（Main Dispatch Queue）所有主队列中的任务都会放在主线程中执行</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//串行队列的主队列</span></span><br><span class="line"><span class="keyword">dispatch_queue_t</span> mqueue = dispatch_get_main_queue();</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>全局并发队列 需要传入两个参数。第一个参数表示队列优先级，一般用<code>DISPATCH_QUEUE_PRIORITY_DEFAULT</code>。第二个参数暂时没用，用0即可。</p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//并发队列的全局队列</span></span><br><span class="line"><span class="keyword">dispatch_queue_t</span> gqueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="3-2-创建任务"><a href="#3-2-创建任务" class="headerlink" title="3.2 创建任务"></a>3.2 创建任务</h5><p>可以指定任务的执行类型：同步、异步</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">dispatch_sync</span>(sQueue, ^&#123;</span><br><span class="line">       </span><br><span class="line">&#125;);</span><br><span class="line"><span class="selector-tag">dispatch_async</span>(sQueue, ^&#123;</span><br><span class="line">       </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>到这一步，我们可以看到，有好几种执行任务的组合方式</p>
+<p>分别为：</p>
+<p>1、同步执行 + 串行队列</p>
+<p>2、异步执行 + 串行队列</p>
+<p>3、同步执行 + 并发队列</p>
+<p>4、异步执行 + 并发队列</p>
+<p>5、同步执行 + 主队列</p>
+<p>6、异步执行 + 主队列</p>
+<p>这六种组合方式得到的结果 如下：</p>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>并发队列</th>
+<th>串行队列</th>
+<th>主队列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同步(sync)</td>
+<td>没有开启新线程，串行执行任务</td>
+<td>没有开启新线程，串行执行任务</td>
+<td>主线程调用：死锁卡住不执行 其他线程调用：没有开启新线程，串行执行任务</td>
+</tr>
+<tr>
+<td>异步(async)</td>
+<td>有开启新线程，并发执行任务</td>
+<td>有开启新线程(1条)，串行执行任务</td>
+<td>没有开启新线程，串行执行任务</td>
+</tr>
+</tbody>
+</table>
+<p>再来结合代码看下这几种组合到底是怎么执行任务的</p>
+<h5 id="3-3-执行任务"><a href="#3-3-执行任务" class="headerlink" title="3.3 执行任务"></a>3.3 执行任务</h5><p>1、同步执行 + 串行队列</p>
+<p>2、异步执行 + 串行队列</p>
+<p>3、同步执行 + 并发队列</p>
+<p>4、异步执行 + 并发队列</p>
+<p>5、同步执行 + 主队列</p>
+<p>6、异步执行 + 主队列</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>破碗举的有点累<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.muyuli.cn/2018/10/24/GCD/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/" class="archive-article-date">
-  	<time datetime="2018-09-12T09:30:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/24/多线程复习三部曲-GCD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多线程复习三部曲--GCD</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/">域名+Hexo+gitHub = 你专属的独一 无二的博客</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -252,9 +420,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
