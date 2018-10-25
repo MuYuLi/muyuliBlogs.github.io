@@ -6,20 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.muyuli.cn">
-  <title>多线程复习三部曲--GCD | 沐雨立的碎碎念</title>
+  <title>域名+Hexo+gitHub = 你专属的独一 无二的博客 | 沐雨立的碎碎念</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作为一个合格的iOS开发，总归绕不开多线程技术的使用。今天提测了业务需求，来复习一下多线程三部曲之一 —— GCD 这篇文章记录了GCD相关的概念，任务和队列，基本使用，其他知识点等。具体如下：  GCD 相关简介 GCD 任务和队列 GCD 基本使用 GCD 其他知识点">
-<meta name="keywords" content="iOS">
+  <meta name="description" content="最近刚刚入职新公司，正处于间歇性踌躇满志的时候，恰逢阿里云服务器打折，跑去转了一圈，意外入手了一个域名。域名都有了，不做点事情有点浪费，才有了搭建个博客的想法。哈哈哈 希望后面能够多写点自己技术上的心得以此让自己更深入地去学习 希望后面能够多写点自己生活上的感悟以此让自己更认真地去生活 OK，Nice ！开搞！ 域名+Hexo+gitHub的方式搭建博客，其实本质就是你的域名跟github服务器有">
+<meta name="keywords" content="工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多线程复习三部曲--GCD">
-<meta property="og:url" content="http://www.muyuli.cn/2018/10/24/多线程复习三部曲-GCD/index.html">
+<meta property="og:title" content="域名+Hexo+gitHub = 你专属的独一 无二的博客">
+<meta property="og:url" content="http://www.muyuli.cn/2018/09/12/Blog/index.html">
 <meta property="og:site_name" content="沐雨立的碎碎念">
-<meta property="og:description" content="作为一个合格的iOS开发，总归绕不开多线程技术的使用。今天提测了业务需求，来复习一下多线程三部曲之一 —— GCD 这篇文章记录了GCD相关的概念，任务和队列，基本使用，其他知识点等。具体如下：  GCD 相关简介 GCD 任务和队列 GCD 基本使用 GCD 其他知识点">
+<meta property="og:description" content="最近刚刚入职新公司，正处于间歇性踌躇满志的时候，恰逢阿里云服务器打折，跑去转了一圈，意外入手了一个域名。域名都有了，不做点事情有点浪费，才有了搭建个博客的想法。哈哈哈 希望后面能够多写点自己技术上的心得以此让自己更深入地去学习 希望后面能够多写点自己生活上的感悟以此让自己更认真地去生活 OK，Nice ！开搞！ 域名+Hexo+gitHub的方式搭建博客，其实本质就是你的域名跟github服务器有">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-25T07:02:35.355Z">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/creatgithub.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/githubsetting.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/createWJJ.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/hexofiles.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/hexo_S.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/liyia.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/aliyun.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/gitpageSet.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/githubpage.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/error.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/npmUpdate.jpg">
+<meta property="og:image" content="http://www.muyuli.cn/2018/09/12/Blog/cengji.jpg">
+<meta property="og:updated_time" content="2018-09-13T07:11:36.731Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多线程复习三部曲--GCD">
-<meta name="twitter:description" content="作为一个合格的iOS开发，总归绕不开多线程技术的使用。今天提测了业务需求，来复习一下多线程三部曲之一 —— GCD 这篇文章记录了GCD相关的概念，任务和队列，基本使用，其他知识点等。具体如下：  GCD 相关简介 GCD 任务和队列 GCD 基本使用 GCD 其他知识点">
+<meta name="twitter:title" content="域名+Hexo+gitHub = 你专属的独一 无二的博客">
+<meta name="twitter:description" content="最近刚刚入职新公司，正处于间歇性踌躇满志的时候，恰逢阿里云服务器打折，跑去转了一圈，意外入手了一个域名。域名都有了，不做点事情有点浪费，才有了搭建个博客的想法。哈哈哈 希望后面能够多写点自己技术上的心得以此让自己更深入地去学习 希望后面能够多写点自己生活上的感悟以此让自己更认真地去生活 OK，Nice ！开搞！ 域名+Hexo+gitHub的方式搭建博客，其实本质就是你的域名跟github服务器有">
+<meta name="twitter:image" content="http://www.muyuli.cn/2018/09/12/Blog/creatgithub.jpg">
   
     <link rel="alternative" href="/atom.xml" title="沐雨立的碎碎念" type="application/atom+xml">
   
@@ -143,116 +156,126 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-多线程复习三部曲-GCD" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Blog" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      多线程复习三部曲--GCD
+      域名+Hexo+gitHub = 你专属的独一 无二的博客
     </h1>
   
 
         
-        <a href="/2018/10/24/多线程复习三部曲-GCD/" class="archive-article-date">
-  	<time datetime="2018-10-24T06:40:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-24</time>
+        <a href="/2018/09/12/Blog/" class="archive-article-date">
+  	<time datetime="2018-09-12T09:30:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>作为一个合格的iOS开发，总归绕不开多线程技术的使用。今天提测了业务需求，来复习一下多线程三部曲之一 —— GCD</p>
-<p>这篇文章记录了GCD相关的概念，任务和队列，基本使用，其他知识点等。具体如下：</p>
+        <p>最近刚刚入职新公司，正处于间歇性踌躇满志的时候，恰逢阿里云服务器打折，跑去转了一圈，意外入手了一个域名。域名都有了，不做点事情有点浪费，才有了搭建个博客的想法。哈哈哈</p>
+<p>希望后面能够多写点自己技术上的心得以此让自己更深入地去学习</p>
+<p>希望后面能够多写点自己生活上的感悟以此让自己更认真地去生活</p>
+<p>OK，Nice ！开搞！</p>
+<p>域名+Hexo+gitHub的方式搭建博客，其实本质就是你的域名跟github服务器有个映射关系，本地在Hexo上写的.md格式的博文（其实读取的时候是静态网页）push到github上后，通过访问你的域名，就可以连接github的服务器，从而读取你的博文。我搭建的过程：</p>
+<p>大致可以粗略分为以下步骤 </p>
 <ul>
-<li>GCD 相关简介</li>
-<li>GCD 任务和队列</li>
-<li>GCD 基本使用</li>
-<li>GCD 其他知识点</li>
-</ul>
-<a id="more"></a>
-<h4 id="一、GCD-相关简介"><a href="#一、GCD-相关简介" class="headerlink" title="一、GCD 相关简介"></a>一、GCD 相关简介</h4><p>GCD （Grand Central Dispatch）是Apple开发的一个多核编程的解决方案，主要用于优化应用程序以支持多核处理器以及其他堆成多处理系统。是一个在线程池模式的基础上执行的并发任务。</p>
-<p>GCD的好处：</p>
-<p><code>GCD可用于多核的并行运算</code></p>
-<p><code>GCD会自动利用更多的CPU内核</code></p>
-<p><code>GCD会自动管理线程声明周期（创建线程、调度任务、销毁线程）</code></p>
-<p><code>不需要编写任何管理线程代码</code></p>
-<h4 id="二、GCD-任务和队列"><a href="#二、GCD-任务和队列" class="headerlink" title="二、GCD 任务和队列"></a>二、GCD 任务和队列</h4><p>GCD的核心概念：任务和队列</p>
-<p>任务：就是执行一段代码实现我们想要它实现的操作。</p>
-<p>执行任务的方式：同步执行（Synchronous）和异步执行（Asychronous）。两者的主要区别是：<strong>是否等待队列的任务执行结束，以及是否具备开启新线程的能力</strong></p>
-<p><strong>同步执行（Synchronous）：</strong></p>
-<p>同步添加的任务需要等待当前队列的其他任务执行结束才能执行，并且只能在当前线程执行，不具备开启新线程的能力</p>
-<p><strong>异步执行（Asychronous）：</strong></p>
-<p>异步添加的任务可以立即开始执行，并且具备开启新线程的能力（具备但不必须，跟队列有关）</p>
-<p>队列：指执行任务的等待队列，存放任务。它是一种特殊的线性表，采用先进先出原则，新任务排到队列末尾，读取任务的时候总是从队列开头开始。</p>
-<p>队列的种类：串行队列（Serial Dispatch Queue）和并发队列（Concurrent Dispatch Queue）。两者的主要区别是：<strong>是否等待队列的任务执行结束，以及是否具备开启新线程的能力</strong></p>
-<p><strong>串行队列（Serial Dispatch Queue）：</strong></p>
-<p>任务排着队，每次只执行一个；可以开启一个线程或者在当前线程</p>
-<p><strong>并发队列（Concurrent Dispatch Queue）：</strong></p>
-<p>可以多个任务同时执行，可以开启多个线程</p>
-<h4 id="三、GCD-基本使用"><a href="#三、GCD-基本使用" class="headerlink" title="三、GCD 基本使用"></a>三、GCD 基本使用</h4><p>使用GCD，分两步：</p>
-<ol>
-<li>创建队列（串行或并发）</li>
-<li>将任务加到任务的队列中，指定任务类型（同步执行或者异步执行）</li>
-</ol>
-<p>下面来用一用</p>
-<h5 id="3-1创建队列"><a href="#3-1创建队列" class="headerlink" title="3.1创建队列"></a>3.1创建队列</h5><ul>
-<li>使用 <code>dispatch_queue_t</code> 创建队列，<code>dispatch_queue_create(&lt;#const char * _Nullable label#&gt;, &lt;#dispatch_queue_attr_t  _Nullable attr#&gt;)</code></li>
-</ul>
-<p>传入两个参数，第一个参数为队列的唯一标识符，可为空；第二个参数用来识别是串行队列还是并发队列：<code>DISPATCH_QUEUE_SERIAL</code> 表示串行队列，<code>DISPATCH_QUEUE_CONCURRENT</code> 表示并发队列。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//串行队列</span></span><br><span class="line"><span class="keyword">dispatch_queue_t</span> sQueue = dispatch_queue_create(<span class="string">""</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line"></span><br><span class="line"> <span class="comment">//并发队列 </span></span><br><span class="line"><span class="keyword">dispatch_queue_t</span> cQueue = dispatch_queue_create(<span class="string">""</span>, DISPATCH_QUEUE_CONCURRENT);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>主队列（Main Dispatch Queue）所有主队列中的任务都会放在主线程中执行</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//串行队列的主队列</span></span><br><span class="line"><span class="keyword">dispatch_queue_t</span> mqueue = dispatch_get_main_queue();</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>全局并发队列 需要传入两个参数。第一个参数表示队列优先级，一般用<code>DISPATCH_QUEUE_PRIORITY_DEFAULT</code>。第二个参数暂时没用，用0即可。</p>
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//并发队列的全局队列</span></span><br><span class="line"><span class="keyword">dispatch_queue_t</span> gqueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<li><p>创建GitHub仓库</p>
+</li>
+<li><p>本地环境搭建</p>
+</li>
+<li><p>配置域名</p>
+</li>
+<li><p>发表文章</p>
 </li>
 </ul>
-<h5 id="3-2-创建任务"><a href="#3-2-创建任务" class="headerlink" title="3.2 创建任务"></a>3.2 创建任务</h5><p>可以指定任务的执行类型：同步、异步</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">dispatch_sync</span>(sQueue, ^&#123;</span><br><span class="line">       </span><br><span class="line">&#125;);</span><br><span class="line"><span class="selector-tag">dispatch_async</span>(sQueue, ^&#123;</span><br><span class="line">       </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>到这一步，我们可以看到，有好几种执行任务的组合方式</p>
-<p>分别为：</p>
-<p>1、同步执行 + 串行队列</p>
-<p>2、异步执行 + 串行队列</p>
-<p>3、同步执行 + 并发队列</p>
-<p>4、异步执行 + 并发队列</p>
-<p>5、同步执行 + 主队列</p>
-<p>6、异步执行 + 主队列</p>
-<p>这六种组合方式得到的结果 如下：</p>
-<table>
-<thead>
-<tr>
-<th>区别</th>
-<th>并发队列</th>
-<th>串行队列</th>
-<th>主队列</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>同步(sync)</td>
-<td>没有开启新线程，串行执行任务</td>
-<td>没有开启新线程，串行执行任务</td>
-<td>主线程调用：死锁卡住不执行 其他线程调用：没有开启新线程，串行执行任务</td>
-</tr>
-<tr>
-<td>异步(async)</td>
-<td>有开启新线程，并发执行任务</td>
-<td>有开启新线程(1条)，串行执行任务</td>
-<td>没有开启新线程，串行执行任务</td>
-</tr>
-</tbody>
-</table>
-<p>再来结合代码看下这几种组合到底是怎么执行任务的</p>
-<h5 id="3-3-执行任务"><a href="#3-3-执行任务" class="headerlink" title="3.3 执行任务"></a>3.3 执行任务</h5><p>1、同步执行 + 串行队列</p>
-<p>2、异步执行 + 串行队列</p>
-<p>3、同步执行 + 并发队列</p>
-<p>4、异步执行 + 并发队列</p>
-<p>5、同步执行 + 主队列</p>
-<p>6、异步执行 + 主队列</p>
+<a id="more"></a>
+<h3 id="创建GitHub仓库"><a href="#创建GitHub仓库" class="headerlink" title="创建GitHub仓库"></a>创建GitHub仓库</h3><p>进入github官网，没有账号的，注册一个咯 还能怎么办呢</p>
+<h5 id="Create-New-repository"><a href="#Create-New-repository" class="headerlink" title="Create New repository"></a>Create New repository</h5><p><em>注意：格式必须为xxx.github.io</em></p>
+<p><img src="/2018/09/12/Blog/creatgithub.jpg" alt="---pics---"></p>
+<h5 id="配置SSH（可以直接https，不需要配置SSH）"><a href="#配置SSH（可以直接https，不需要配置SSH）" class="headerlink" title="配置SSH（可以直接https，不需要配置SSH）"></a>配置SSH（可以直接https，不需要配置SSH）</h5><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssh-keygen</span></span><br></pre></td></tr></table></figure>
+<p>生成<code>id_rsa.pub</code>文件，这里面就是SSH key的内容</p>
+<p>然后使用vim编辑器打开这个文件</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~<span class="regexp">/.ssh/i</span>d_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>选中内容 复制</p>
+<p>在github的设置页面，新增SSH Key </p>
+<p><img src="/2018/09/12/Blog/githubsetting.jpg" alt="---pics---"></p>
+<p>查看SSH是否配置好</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
+<h3 id="本地环境搭建（以Mac示例）"><a href="#本地环境搭建（以Mac示例）" class="headerlink" title="本地环境搭建（以Mac示例）"></a>本地环境搭建（以Mac示例）</h3><ul>
+<li>安装git</li>
+<li>安装Node.js</li>
+<li>安装和配置Hexo</li>
+</ul>
+<h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h4><p><a href="http://git-scm.com" target="_blank" rel="noopener">戳我</a></p>
+<p><a href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">或者戳我</a></p>
+<h4 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h4><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">戳我</a></p>
+<p>一步步安装就可以了，我们会把博客内容push到gitHub上，安装Node.js因为Hexo基于Node.js</p>
+<h4 id="安装和配置Hexo"><a href="#安装和配置Hexo" class="headerlink" title="安装和配置Hexo"></a>安装和配置Hexo</h4><p>Now，打开终端，用npm安装Hexo（Mac自带npm）</p>
+<p><code>npm install -g hexo-cli</code></p>
+<p>然后找个地方新建个文件夹，例如我建在用户目录下：</p>
+<p><img src="/2018/09/12/Blog/createWJJ.jpg" alt="---pics---"></p>
+<p>然后cd到Hexo文件夹</p>
+<p>然后依次</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+<p>这一步如果出错的话，可能与权限有关，在前面加sudo 输入密码获得权限就行</p>
+<p>安装结束后  空的文件夹现在长这样：</p>
+<p><img src="/2018/09/12/Blog/hexofiles.jpg" alt="---pics---"></p>
+<p>然后启动本地服务 (hexo server) </p>
+<p><code>hexo s</code></p>
+<p><img src="/2018/09/12/Blog/hexo_S.jpg" alt="---pics---"></p>
+<p>打开上网工具，输入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 是不是可以看到安装成功？嘤嘤嘤</p>
+<p>那么我们看到的网页模板不是我们想要的，所以可以换主题嘛！这里是采用了比较著名的<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">https://github.com/litten/hexo-theme-yilia</a>主题</p>
+<p><code>Ctrl+c</code></p>
+<p><code>cd themes</code></p>
+<p>把yilia主题从github网站上clone下来</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/litten/hexo-theme-yilia.git</span><br></pre></td></tr></table></figure>
+<p>可以把文件夹改名字为yilia</p>
+<p><img src="/2018/09/12/Blog/liyia.jpg" alt="---pics---"></p>
+<p>然后打开Hexo文件夹下面的<code>_config.yml</code>文件，拉到最低，修改里面的<code>theme</code>为<code>yilia</code></p>
+<p>ok 到这一步，我们完成了主题的切换</p>
+<p>那我们一开始新建的gitHub仓库用来干什么的呢？别急，在下面</p>
+<p>还是刚刚打开的<code>_config.yml</code>文件，拉到底，把配置改成下面这样：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Deployment</span></span><br><span class="line"><span class="meta">## Docs: http:<span class="comment">//hexo.io/docs/deployment.html</span></span></span><br><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> git</span><br><span class="line"><span class="symbol">  repository:</span> https:<span class="comment">//github.com/xxx/xxx.github.io.git</span></span><br><span class="line"><span class="symbol">  branch:</span> master</span><br></pre></td></tr></table></figure>
+<p>注意看type: git  这里一定要写<code>git</code>而不是<code>gitHub</code></p>
+<p>好了，保存关闭</p>
+<p>回到终端</p>
+<p>执行命令</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo clean</span></span><br><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
+<p>如果出现<code>ERROR Deployer not found: git</code>错误，执行<code>npm install --save hexo-deployer-git</code>还是不行看一下上文中type是否是<code>git</code>或者是否是权限问题，如果是，命令行前加<code>sudo</code></p>
+<h3 id="配置域名"><a href="#配置域名" class="headerlink" title="配置域名"></a>配置域名</h3><p>我是在阿里云买的域名（腾讯云，新浪云 etc.）</p>
+<p><img src="/2018/09/12/Blog/aliyun.jpg" alt="---pics---"></p>
+<p>注意：记录值写一开始创建的github仓库名：xxx.github.io</p>
+<p>到这里，完成了域名对github的映射</p>
+<p>然后，去到github，完成github对域名的反映射</p>
+<p><img src="/2018/09/12/Blog/gitpageSet.jpg" alt="---pics---"></p>
+<p><img src="/2018/09/12/Blog/githubpage.jpg" alt="---pics---"></p>
+<p>OK Nice！到这里就正式完成了  输入自己的域名，看到了属于自己独一无二的博客，是不是很惊喜？</p>
+<h3 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h3><p>先说一下如果想在博文中插入图片，需要用到一个插件：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install --save https:<span class="regexp">//gi</span>thub.com<span class="regexp">/CodeFalling/</span>hexo-asset-image</span><br></pre></td></tr></table></figure>
+<p>cd到Hexo 查看<code>_config.yml</code>文件 查找 <code>post_asset_folder</code>字段确定<code>post_asset_folder</code>设置为<code>true</code> </p>
+<p>新建文章</p>
+<p><code>cd Hexo</code></p>
+<p><code>hexo new &quot;Hello World&quot;</code></p>
+<p>然后在Hexo/source/_ports/里面可以看到<code>Hello World.md</code>和<code>Hello World</code>文件夹，文件夹里可以放图片等跟<code>Hello World</code>博文有关的资源</p>
+<p>在博文里用<code>![] (/Hello World/tupian.png)</code>方式插入图片</p>
+<p>文章写好直接执行下面命令即可直接发布文章</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo d -g</span></span><br></pre></td></tr></table></figure>
+<p>浏览器中输入自己的域名，便可以查看最新的博文了！Over！！！</p>
+<h3 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h3><p><strong>博文可直接用MarkDown编辑器编辑，推荐Typora，真正的所写即所得</strong></p>
+<p><strong><code>yilia</code> 主题相关的设置，可打开<code>/Hexo/themes/yilia/_config.ylm</code>文件修改，详情可参照<code>yilia</code>gitHub主页</strong></p>
+<p><strong>localhost:4000 端口被占用的话，可执行 hexo s -p 5000 修改成5000 端口</strong></p>
+<p>end of the stream or a document separator is expected at line x, column y</p>
+<p>查看是否是<code>_config.yml</code>文件中x行冒号后面没有空格 </p>
+<p><img src="/2018/09/12/Blog/error.jpg" alt="---pics---"></p>
+<p>解决方法：<code>npm i hexo-generator-json-content --save</code>（保证node在6.0版本以上）</p>
+<p>如果出现</p>
+<p><img src="/2018/09/12/Blog/npmUpdate.jpg" alt="---pics---"></p>
+<p>把层级改成下面这样：</p>
+<p><img src="/2018/09/12/Blog/cengji.jpg" alt="---pics"></p>
 
       
 
@@ -292,7 +315,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
         		</li>
       		
 		</ul>
@@ -348,7 +371,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.muyuli.cn/2018/10/24/多线程复习三部曲-GCD/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.muyuli.cn/2018/09/12/Blog/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,20 +385,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/10/24/GCD/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/12/域名+Hexo+gitHub = 你专属的独一 无二的博客/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          多线程复习三部曲--GCD
+          域名+Hexo+gitHub = 你专属的独一 无二的博客
         
       </div>
     </a>
   
-  
-    <a href="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">如何把自己的开源代码发布到CocoaPods上</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -400,7 +418,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、GCD-相关简介"><span class="toc-number">1.</span> <span class="toc-text">一、GCD 相关简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、GCD-任务和队列"><span class="toc-number">2.</span> <span class="toc-text">二、GCD 任务和队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、GCD-基本使用"><span class="toc-number">3.</span> <span class="toc-text">三、GCD 基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1创建队列"><span class="toc-number">3.1.</span> <span class="toc-text">3.1创建队列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-2-创建任务"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 创建任务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-执行任务"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 执行任务</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建GitHub仓库"><span class="toc-number">1.</span> <span class="toc-text">创建GitHub仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Create-New-repository"><span class="toc-number">1.0.1.</span> <span class="toc-text">Create New repository</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置SSH（可以直接https，不需要配置SSH）"><span class="toc-number">1.0.2.</span> <span class="toc-text">配置SSH（可以直接https，不需要配置SSH）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地环境搭建（以Mac示例）"><span class="toc-number">2.</span> <span class="toc-text">本地环境搭建（以Mac示例）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装git"><span class="toc-number">2.1.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装Node-js"><span class="toc-number">2.2.</span> <span class="toc-text">安装Node.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安装和配置Hexo"><span class="toc-number">2.3.</span> <span class="toc-text">安装和配置Hexo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置域名"><span class="toc-number">3.</span> <span class="toc-text">配置域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发表文章"><span class="toc-number">4.</span> <span class="toc-text">发表文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#碎碎念"><span class="toc-number">5.</span> <span class="toc-text">碎碎念</span></a></li></ol>
                     </div>
                 </span>
             </div>

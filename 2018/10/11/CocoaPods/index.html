@@ -12,17 +12,17 @@
 <meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何把自己的开源代码发布到CocoaPods上">
-<meta property="og:url" content="http://www.muyuli.cn/2018/10/11/如何把自己的开源代码发布到CocoaPods上/index.html">
+<meta property="og:url" content="http://www.muyuli.cn/2018/10/11/CocoaPods/index.html">
 <meta property="og:site_name" content="沐雨立的碎碎念">
 <meta property="og:description" content="由于所在公司开发团队同时维护了三个APP，所以会经常出现三个APP中同时需要相同的诸如工具类，框架，业务等代码，如果每个APP都各自写一遍，未免太浪费时间，所以会经常需要写一些通用的代码放在CocoaPods上。今天就来记录一下如何把自己的代码放给CocoaPods上供很多很多很多人都能直接用嘻嘻嘻 在这篇文章中，我忽略了CocoaPods的安装，原理等 如果有这方面需求可参考https://ww">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.muyuli.cn/2018/10/11/如何把自己的开源代码发布到CocoaPods上/WechatIMG7.png">
-<meta property="og:image" content="http://www.muyuli.cn/2018/10/11/如何把自己的开源代码发布到CocoaPods上/WechatIMG953.png">
+<meta property="og:image" content="http://www.muyuli.cn/2018/10/11/CocoaPods/WechatIMG7.png">
+<meta property="og:image" content="http://www.muyuli.cn/2018/10/11/CocoaPods/WechatIMG953.png">
 <meta property="og:updated_time" content="2018-10-12T06:35:41.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何把自己的开源代码发布到CocoaPods上">
 <meta name="twitter:description" content="由于所在公司开发团队同时维护了三个APP，所以会经常出现三个APP中同时需要相同的诸如工具类，框架，业务等代码，如果每个APP都各自写一遍，未免太浪费时间，所以会经常需要写一些通用的代码放在CocoaPods上。今天就来记录一下如何把自己的代码放给CocoaPods上供很多很多很多人都能直接用嘻嘻嘻 在这篇文章中，我忽略了CocoaPods的安装，原理等 如果有这方面需求可参考https://ww">
-<meta name="twitter:image" content="http://www.muyuli.cn/2018/10/11/如何把自己的开源代码发布到CocoaPods上/WechatIMG7.png">
+<meta name="twitter:image" content="http://www.muyuli.cn/2018/10/11/CocoaPods/WechatIMG7.png">
   
     <link rel="alternative" href="/atom.xml" title="沐雨立的碎碎念" type="application/atom+xml">
   
@@ -146,7 +146,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-如何把自己的开源代码发布到CocoaPods上" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CocoaPods" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -158,7 +158,7 @@
   
 
         
-        <a href="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/" class="archive-article-date">
+        <a href="/2018/10/11/CocoaPods/" class="archive-article-date">
   	<time datetime="2018-10-11T08:45:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-11</time>
 </a>
         
@@ -215,9 +215,9 @@
 “**” 表示匹配所有子目录
 </code></pre><h4 id="验证-podspec文件"><a href="#验证-podspec文件" class="headerlink" title="验证.podspec文件"></a>验证.podspec文件</h4><p><code>pod spec lint</code></p>
 <p>验证失败后 要仔细查看下.podspec文件</p>
-<p><img src="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/WechatIMG7.png" alt="---pics---"></p>
+<p><img src="/2018/10/11/CocoaPods/WechatIMG7.png" alt="---pics---"></p>
 <h4 id="提交-podspec文件到trunk中"><a href="#提交-podspec文件到trunk中" class="headerlink" title="提交.podspec文件到trunk中"></a>提交.podspec文件到trunk中</h4><p><code>pod trunk push xxx.podspec</code></p>
-<p><img src="/2018/10/11/如何把自己的开源代码发布到CocoaPods上/WechatIMG953.png" alt="image"></p>
+<p><img src="/2018/10/11/CocoaPods/WechatIMG953.png" alt="image"></p>
 <p>好了，到这里就可以使用刚刚提交给pods的代码了（很多人出现搜索不到的问题，只能pod setup一下，但我没有出现该问题）</p>
 <h3 id="更新版本"><a href="#更新版本" class="headerlink" title="更新版本"></a>更新版本</h3><p>如果在版本使用期间发现了bug或者有新的东西提交，那么就需要把提交流程重新走一遍</p>
 <ul>
@@ -333,7 +333,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.muyuli.cn/2018/10/11/如何把自己的开源代码发布到CocoaPods上/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.muyuli.cn/2018/10/11/CocoaPods/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -347,7 +347,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/10/24/多线程复习三部曲-GCD/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/10/24/GCD/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
