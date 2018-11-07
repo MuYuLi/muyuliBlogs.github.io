@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.muyuli.cn">
-  <title>Xcode中的虚文件夹如何一键变实体文件夹 | 沐雨立的碎碎念</title>
+  <title>Xcode中虚文件夹如何一键变实体文件夹 | 沐雨立的碎碎念</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Xcode中的虚文件夹如何一键变实体文件夹">
+  <meta name="description" content="项目由于历史原因，整个工程里的分类文件夹全是虚文件夹，也就是说一个总的文件夹里一览无余的躺着几百个类和子文件夹，最近一直在一边做业务一边show in Finder 新建各种实体文件夹真的是累。。。后来实在太烦，便抱着试试看的态度 去网上找了自动把虚文件夹变成实体文件夹的方法 别说  还真让我找到了！啊哈哈 果然偷懒可以提高成产力！">
+<meta name="keywords" content="工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode中虚文件夹如何一键变实体文件夹">
 <meta property="og:url" content="http://www.muyuli.cn/2018/11/07/XcodeFiles/index.html">
 <meta property="og:site_name" content="沐雨立的碎碎念">
+<meta property="og:description" content="项目由于历史原因，整个工程里的分类文件夹全是虚文件夹，也就是说一个总的文件夹里一览无余的躺着几百个类和子文件夹，最近一直在一边做业务一边show in Finder 新建各种实体文件夹真的是累。。。后来实在太烦，便抱着试试看的态度 去网上找了自动把虚文件夹变成实体文件夹的方法 别说  还真让我找到了！啊哈哈 果然偷懒可以提高成产力！">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-07T13:00:19.631Z">
+<meta property="og:updated_time" content="2018-11-07T13:47:21.291Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xcode中的虚文件夹如何一键变实体文件夹">
+<meta name="twitter:title" content="Xcode中虚文件夹如何一键变实体文件夹">
+<meta name="twitter:description" content="项目由于历史原因，整个工程里的分类文件夹全是虚文件夹，也就是说一个总的文件夹里一览无余的躺着几百个类和子文件夹，最近一直在一边做业务一边show in Finder 新建各种实体文件夹真的是累。。。后来实在太烦，便抱着试试看的态度 去网上找了自动把虚文件夹变成实体文件夹的方法 别说  还真让我找到了！啊哈哈 果然偷懒可以提高成产力！">
   
     <link rel="alternative" href="/atom.xml" title="沐雨立的碎碎念" type="application/atom+xml">
   
@@ -146,20 +150,42 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Xcode中的虚文件夹如何一键变实体文件夹
+      Xcode中虚文件夹如何一键变实体文件夹
     </h1>
   
 
         
         <a href="/2018/11/07/XcodeFiles/" class="archive-article-date">
-  	<time datetime="2018-11-07T13:00:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-07</time>
+  	<time datetime="2018-11-07T13:05:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>项目由于历史原因，整个工程里的分类文件夹全是虚文件夹，也就是说一个总的文件夹里一览无余的躺着几百个类和子文件夹，最近一直在一边做业务一边show in Finder 新建各种实体文件夹真的是累。。。后来实在太烦，便抱着试试看的态度 去网上找了自动把虚文件夹变成实体文件夹的方法 别说  还真让我找到了！啊哈哈 果然偷懒可以提高成产力！</p>
+<a id="more"></a>
+<p>这个神器就是：</p>
+<h2 id="Synx"><a href="#Synx" class="headerlink" title="Synx"></a>Synx</h2><p>照例：</p>
+<ul>
+<li><p>安装Synx</p>
+</li>
+<li><p>执行一行命令</p>
+</li>
+</ul>
+<h4 id="安装Synx"><a href="#安装Synx" class="headerlink" title="安装Synx"></a>安装Synx</h4><p>最近ruby-china.org这个源由于域名原因暂时不支持了  改成了ruby-china.com 所以 我们先添加源支持</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem sources -<span class="selector-tag">a</span> https:<span class="comment">//ruby-china.com/</span></span><br></pre></td></tr></table></figure>
+<p>然后安装Synx</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">install</span> synx</span><br></pre></td></tr></table></figure>
+<h4 id="执行一行命令"><a href="#执行一行命令" class="headerlink" title="执行一行命令"></a>执行一行命令</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">synx <span class="regexp">/Users/</span>xxxx<span class="regexp">/xxx/</span>xx<span class="regexp">/NewDemo.xcodeproj</span></span><br></pre></td></tr></table></figure>
+<p>然后就等着终端输出一堆一堆的工作指令，可以肉眼所见的在帮我们搬动类和文件 简直帅炸</p>
+<h3 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h3><p>1、移除Xcode中没有引用的图片和文件</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">synx -p <span class="regexp">/Users/</span>xxxx<span class="regexp">/xxx/</span>xx<span class="regexp">/NewDemo.xcodeproj</span></span><br></pre></td></tr></table></figure>
+<p>2、忽略当前文件夹继续同步</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">synx -e <span class="string">"/aaa/"</span> <span class="regexp">/Users/</span>xxxx<span class="regexp">/xxx/</span>xx<span class="regexp">/NewDemo.xcodeproj</span></span><br></pre></td></tr></table></figure>
+<p>3、退出</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">synx -q <span class="regexp">/Users/</span>xxxx<span class="regexp">/xxx/</span>xx<span class="regexp">/NewDemo.xcodeproj</span></span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -193,6 +219,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
