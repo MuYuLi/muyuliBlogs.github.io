@@ -190,10 +190,9 @@
 					
 						<p>最近打算从零写个比较完整的小型APP（毕竟上次写Swift APP 已经是两年前了）。暂时决定选择CYLTabBarController + Moya + HandyJSON + URLNavigator 来构建整个框架，其中会用到一些成熟的框架，也会尝试自己封装一些比较好玩的常用的控件例如转场UI 和 一些好玩的动画。</p>
 <a id="more"></a>
-<p>完成概括：</p>
-<p>目前完成tabBar，自定义NavigationController，首页很好玩的一个collection切换效果，基于Moya的进一步封装网络数据请求，图片切割的转场动画，包括几个tab根页面的业务数据展示；</p>
-<p>待完成：</p>
-<p>自定义刷新加载动画组件</p>
+<h5 id="完成概括："><a href="#完成概括：" class="headerlink" title="完成概括："></a>完成概括：</h5><p>目前完成tabBar，自定义NavigationController，首页很好玩的一个collection切换效果，基于Moya的进一步封装网络数据请求，图片切割的转场动画，包括几个tab根页面的业务数据展示；</p>
+<h5 id="待完成："><a href="#待完成：" class="headerlink" title="待完成："></a>待完成：</h5><p>自定义刷新加载动画组件</p>
+<h5 id="demo地址："><a href="#demo地址：" class="headerlink" title="demo地址："></a>demo地址：</h5><p><a href="https://github.com/MuYuLi/WantToGo" target="_blank">https://github.com/MuYuLi/WantToGo</a></p>
 <h4 id="“想去”部分功能展示"><a href="#“想去”部分功能展示" class="headerlink" title="“想去”部分功能展示"></a>“想去”部分功能展示</h4><p><img src="/2018/11/23/Swift-APP/wantgoapp.gif" alt="image"></p>
 <h4 id="“想去”代码设计思路"><a href="#“想去”代码设计思路" class="headerlink" title="“想去”代码设计思路"></a>“想去”代码设计思路</h4><p>采用CYLTabBarController + Moya + HandyJSON + URLNavigator等成熟框架来设计APP的基础功能，使用CYLTabBarController创建TabBar框架；基于Moya封装数据请求方法，简单快捷；使用HandyJSON解析请求到的json数据；使用URLNavigator用于路由跳转，包括页面、组件跳转等</p>
 <h4 id="“想去”按模块分析"><a href="#“想去”按模块分析" class="headerlink" title="“想去”按模块分析"></a>“想去”按模块分析</h4><h5 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h5><p>首页是主题展示，采用colllection布局，自定义缩放动画效果的layout，核心代码：</p>
@@ -208,7 +207,6 @@
 </li>
 </ol>
 <p><img src="/2018/11/23/Swift-APP/wantgoapptheme.gif" alt="image"></p>
-<p>​    </p>
 <p>这个功能用到手势，控制器切换，坐标转移等知识点，详情见demo</p>
 <h5 id="设计师"><a href="#设计师" class="headerlink" title="设计师"></a>设计师</h5><p>设计师页面 主要是一个下拉放大广告的技术点，主要是跟随tableivew滑动距离更改广告页的frame</p>
 <p>效果如下：</p>
@@ -364,7 +362,7 @@
 				
 				
 				<!--toc(post.content)-->
-				<ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#“想去”部分功能展示"><span class="post-toc-text">“想去”部分功能展示</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#“想去”代码设计思路"><span class="post-toc-text">“想去”代码设计思路</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#“想去”按模块分析"><span class="post-toc-text">“想去”按模块分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#首页"><span class="post-toc-text">首页</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#设计师"><span class="post-toc-text">设计师</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#TA-说"><span class="post-toc-text">TA 说</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#逛"><span class="post-toc-text">逛</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#我的"><span class="post-toc-text">我的</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#碎碎念"><span class="post-toc-text">碎碎念</span></a></li></ol>
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#完成概括："><span class="post-toc-text">完成概括：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#待完成："><span class="post-toc-text">待完成：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#demo地址："><span class="post-toc-text">demo地址：</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#“想去”部分功能展示"><span class="post-toc-text">“想去”部分功能展示</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#“想去”代码设计思路"><span class="post-toc-text">“想去”代码设计思路</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#“想去”按模块分析"><span class="post-toc-text">“想去”按模块分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#首页"><span class="post-toc-text">首页</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#设计师"><span class="post-toc-text">设计师</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#TA-说"><span class="post-toc-text">TA 说</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#逛"><span class="post-toc-text">逛</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#我的"><span class="post-toc-text">我的</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#碎碎念"><span class="post-toc-text">碎碎念</span></a>
 			</nav>
 			<div class="post-toc-bar"><div>
 		</aside>
