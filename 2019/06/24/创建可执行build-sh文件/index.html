@@ -10,7 +10,7 @@
 		
 
 <head>
-	<title>鱼书</title>
+	<title>创建可执行build.sh文件</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="apple-mobile-web-app-title" content="Amaze UI" />
@@ -54,7 +54,7 @@
 		
 		
 			
-			<p class=page-name>当前文章&nbsp;:&nbsp;《鱼书》</p>
+			<p class=page-name>当前文章&nbsp;:&nbsp;《创建可执行build.sh文件》</p>
 			
 		
 	
@@ -156,8 +156,8 @@
 					
 					
 	
-		<a href="/2018/11/19/鱼书/" itemprop="url">		
-			鱼书		
+		<a href="/2019/06/24/创建可执行build-sh文件/" itemprop="url">		
+			创建可执行build.sh文件		
 		</a>
 	
 
@@ -166,9 +166,9 @@
 				<p class="am-article-meta blog-text-center">
 					<span>
 						<i class="fa fa-clock-o"></i> 
-						<a href="/2018/11/19/鱼书/" itemprop="url">
-	<time datetime="2018-11-19T08:14:49.000Z" itemprop="datePublished">
-  		2018-11-19
+						<a href="/2019/06/24/创建可执行build-sh文件/" itemprop="url">
+	<time datetime="2019-06-24T08:04:49.000Z" itemprop="datePublished">
+  		2019-06-24
   </time>
 </a>    
 &nbsp;
@@ -178,7 +178,7 @@
 						
 							<i class="fa fa-tags"></i>
 							
-								<a href="#音乐" title="音乐" rel="1">音乐</a>&nbsp;
+								<a href="#零碎" title="零碎" rel="1">零碎</a>&nbsp;
 													 											
 						
 					</span>
@@ -188,24 +188,9 @@
 			<div class="am-article-bd">
 				<div class="content" id="post-content">
 					
-						<center>陈鸿宇/曹琴</center>
-
-<center>愿你不悲不喜不自怜</center>
-
-<center>浊酒一杯敬你先</center>
-
-<center>愿你始终有初心模样</center>
-
-<center>不曾变</center>
-
-<center>愿你不卑不亢不自叹</center>
-
-<center>一生热爱不遗憾</center>
-
-<center>愿你余生可随遇而安</center>
-
-<center>步步慢</center>
-
+						<h3 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">echo</span> <span class="string">'sudo apt-get update'</span> &gt;&gt; build.sh    <span class="comment">#向build.sh文件写入内容</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash">chmod +x build.sh    <span class="comment">#生成可执行程序</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash">./build.sh    <span class="comment">#执行可执行程序</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash">nano build.sh    <span class="comment">#编辑可执行程序</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h3><p>报权限问题：</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">运行以下命令</span><br><span class="line">chmod 777 <span class="keyword">build</span>.sh</span><br><span class="line"></span><br><span class="line">然后运行以下命令</span><br><span class="line">./<span class="keyword">build</span>.sh</span><br></pre></td></tr></table></figure>
 
 					
 				</div>
@@ -214,15 +199,9 @@
 
 		<ul class="am-pagination">
     
-    	<li class="am-pagination-prev">
-   		<a class="pull-left" href="/2018/11/23/Swift-APP/" title="Swift-APP 构建过程">
-      		&laquo; 上一篇
-		</a>
-		</li>
-	
 	
 		<li class="am-pagination-next">
-		<a class="pull-right" href="/2018/11/07/XcodeFiles/" title="Xcode中虚文件夹如何一键变实体文件夹">
+		<a class="pull-right" href="/2019/03/25/Cocoapods清理缓存/" title="Cocoapods清理缓存">
 			下一篇 &raquo;
 		</a>
 		</li>
@@ -343,6 +322,18 @@
 	描述：The TOC module refers to 'https://github.com/codefine/hexo-theme-mellow', include toc.ejs、toc.js、toc.css. All rights reserved by codefine. 
 -->
 
+	
+		<aside class="post-widget">
+			<nav class="post-toc-wrap" id="post-toc">
+				
+					<strong>文章目录</strong>
+				
+				
+				<!--toc(post.content)-->
+				<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令行"><span class="post-toc-text">命令行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#碎碎念"><span class="post-toc-text">碎碎念</span></a></li></ol>
+			</nav>
+			<div class="post-toc-bar"><div>
+		</aside>
 	
 
 	</div>
